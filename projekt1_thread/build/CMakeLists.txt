@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.20)
+project(thread_gpio)
+include_directories(../inc)
+add_executable(run_thread_gpio ../src/gpiod_utils.c ../src/main.c ../src/semaphore.c)
+target_compile_options(run_thread_gpio PRIVATE -Wall -Werror)
+target_link_libraries(run_thread_gpio gpiod pthread)
+set_target_properties(run_thread_gpio PROPERTIES RUNTIME_OUTPUT_DIRECTORY ../)
